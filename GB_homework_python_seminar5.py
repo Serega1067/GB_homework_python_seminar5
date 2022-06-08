@@ -58,6 +58,7 @@ data.close()
 A[i] - 1 = A[i-1]. Найти его.
 '''
 
+'''
 print("\nПроверим, что в файле file_task35.txt порядок чисел\n"
       "соответствует условию A[i] - 1 = A[i-1] и если это не так\n"
       "найдём нужное число и исправим несоответствие\n")
@@ -82,3 +83,30 @@ data.writelines("\n" + new_data)
 print("Результат записан в файл file_task35.txt\n")
 
 data.close()
+'''
+
+'''
+Задача 43.
+Дана последовательность чисел. Получить список уникальных элементов 
+заданной последовательности.
+Пример: [1, 2, 3, 5, 1, 5, 3, 10] => [2, 10]
+'''
+
+print("Проверим список на повтопяющиеся элементы и "
+      "выведем неповторяющиеся")
+list_input = list(map(int, input("Введите элементы списка "
+                                 "через пробел:\n").split()))
+
+def sort_list(arg_list):
+    result = []
+    while arg_list:
+        temp = arg_list.pop(0)
+        if temp in arg_list:
+            while temp in arg_list:
+                arg_list.remove(temp)
+        else:
+            result.append(temp)
+    return result
+
+new_list_input = sort_list(list_input)
+print(f"Список неповторяющихся элементов: {new_list_input}")
